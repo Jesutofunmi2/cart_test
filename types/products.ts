@@ -1,4 +1,5 @@
 
+
 export interface Product {
   id: number;
   name: string;
@@ -12,5 +13,5 @@ export interface Product {
 }
 
 export interface Props {
-    addToCart: (product: Product) => void;
+    cartItems : any[]
 }

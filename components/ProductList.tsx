@@ -25,14 +25,12 @@ const ProductList = () => {
       const updatedCartItems = [...cartItems];
       updatedCartItems[existingItemIndex].quantity += 1;
       setCartItems(updatedCartItems);
-      console.log(updatedCartItems);
       dispatch(cartData(updatedCartItems));
     } else {
       setCartItems([
         ...cartItems,
         { id: product.id, name: product.name, quantity: 1 },
       ]);
-      console.log(cartItems);
       dispatch(cartData(cartItems));
     }
   };

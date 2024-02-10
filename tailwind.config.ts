@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: { 
+        accent: "#179957",
+        accentDark: "#184D47",
+      },
+      container: {
+       center: true,
+       padding: "15px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

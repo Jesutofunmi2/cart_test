@@ -1,8 +1,7 @@
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import CartCountBadge from "./CartCountBadge";
-import Link from "next/link";
-
+import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
+import { BsSearch } from 'react-icons/bs'
+import CartCountBadge from './CartCountBadge'
+import Link from 'next/link'
 
 const Navbar = () => {
   return (
@@ -10,7 +9,7 @@ const Navbar = () => {
       <div className="container hidden lg:block">
         <div className="flex justify-between items-center p-8">
           <h1 className="text-4xl font-medium">
-            <Link href="/"> Logo </Link> 
+            <Link href="/"> Logo </Link>
           </h1>
           <div className="relative w-full max-w-[500px]">
             <input
@@ -18,10 +17,7 @@ const Navbar = () => {
               type="text"
               placeholder="Search Product..."
             />
-            <BsSearch
-              className="absolute top-0 right-0 mt-4 mr-5 text-gray-500"
-              size={20}
-            />
+            <BsSearch className="absolute top-0 right-0 mt-4 mr-5 text-gray-500" size={20} />
           </div>
 
           <div className="flex gap-4">
@@ -36,7 +32,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

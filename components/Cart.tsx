@@ -1,24 +1,24 @@
-"use client";
+'use client'
 import {
   addTocartData,
   clearCart,
   decreaseCart,
   getTotals,
   removeFromCart,
-} from "@/services/redux/features/cartSlice";
-import { RootState } from "@/services/redux/store";
-import { CartItem } from "@/types/cartItems";
-import { useEffect } from "react";
-import { AiOutlineClear, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+} from '@/services/redux/features/cartSlice'
+import { RootState } from '@/services/redux/store'
+import { CartItem } from '@/types/cartItems'
+import { useEffect } from 'react'
+import { AiOutlineClear, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Cart = () => {
-  const { carts, totalAmount } = useSelector((state: RootState) => state.cart);
-  const dispatch = useDispatch();
+  const { carts, totalAmount } = useSelector((state: RootState) => state.cart)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getTotals(carts));
-  }, [carts, dispatch]);
+    dispatch(getTotals(carts))
+  }, [carts, dispatch])
 
   return (
     <>
@@ -38,20 +38,13 @@ const Cart = () => {
                   <div>
                     <div className="font-bold text-2xl">{item.price}</div>
                     <div className="flex gap-1 items-center justify-between">
-                      Qty:{" "}
-                      <AiOutlineMinus
-                        onClick={() => dispatch(decreaseCart(item))}
-                      />{" "}
-                      {item.quantity}{" "}
-                      <AiOutlinePlus
-                        onClick={() => dispatch(addTocartData(item))}
-                      />
+                      Qty: <AiOutlineMinus onClick={() => dispatch(decreaseCart(item))} />{' '}
+                      {item.quantity}{' '}
+                      <AiOutlinePlus onClick={() => dispatch(addTocartData(item))} />
                     </div>
                   </div>
 
-                  <div className="text-3xl font-bold">
-                    #{item.price * item.quantity}
-                  </div>
+                  <div className="text-3xl font-bold">#{item.price * item.quantity}</div>
 
                   <button
                     onClick={() => dispatch(removeFromCart(item))}
@@ -63,9 +56,7 @@ const Cart = () => {
               </div>
             ))}
 
-            <h2 className="text-right text-3xl font-bold">
-              Total: #{totalAmount}
-            </h2>
+            <h2 className="text-right text-3xl font-bold">Total: #{totalAmount}</h2>
             <button
               className="text-right bg-red-600 text-white py-4 px-12 mt-4 block mx-auto hover:bg-red-800"
               onClick={() => dispatch(clearCart(carts))}
@@ -76,7 +67,7 @@ const Cart = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

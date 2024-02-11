@@ -8,7 +8,7 @@ interface ChildrenProps {
 
 export function ToastProvider({ children }: ChildrenProps) {
   return (
-    <div className='h-full'>
+    <div className="h-full">
       {children}
       <ToastContainer />
     </div>

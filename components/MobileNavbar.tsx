@@ -1,8 +1,8 @@
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { IoIosMenu } from "react-icons/io";
-import CartCountBadge from "./CartCountBadge";
-import Link from "next/link";
+import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
+import { BsSearch } from 'react-icons/bs'
+import { IoIosMenu } from 'react-icons/io'
+import CartCountBadge from './CartCountBadge'
+import Link from 'next/link'
 
 const MobileNavbar = () => {
   return (
@@ -14,7 +14,7 @@ const MobileNavbar = () => {
             <BsSearch />
           </div>
           <h1 className="text-4xl">
-           <Link href="/"> Logo </Link>
+            <Link href="/"> Logo </Link>
           </h1>
 
           <div className="flex gap-4 text-[30px]">
@@ -27,7 +27,7 @@ const MobileNavbar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MobileNavbar;
+export default MobileNavbar

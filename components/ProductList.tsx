@@ -1,16 +1,16 @@
-import { useDispatch } from "react-redux";
-import { Product } from "@/types/products";
-import { useGetProducts } from "@/services/api/products";
-import { AiOutlineShopping } from "react-icons/ai";
-import { addTocartData } from "@/services/redux/features/cartSlice";
+import { useDispatch } from 'react-redux'
+import { Product } from '@/types/products'
+import { useGetProducts } from '@/services/api/products'
+import { AiOutlineShopping } from 'react-icons/ai'
+import { addTocartData } from '@/services/redux/features/cartSlice'
 
 const ProductList = () => {
-  const { data: products, isLoading, error } = useGetProducts();
-  const dispatch = useDispatch();
+  const { data: products, isLoading, error } = useGetProducts()
+  const dispatch = useDispatch()
 
-  if (!products) return null;
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching data</div>;
+  if (!products) return null
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error fetching data</div>
 
   return (
     <>
@@ -23,16 +23,13 @@ const ProductList = () => {
                 <div key={product.id} className="border p-4">
                   <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                   <p className="mb-2">
-                    Selling Price:{" "}
-                    {product.store_product_properties[0]?.selling_price}
+                    Selling Price: {product.store_product_properties[0]?.selling_price}
                   </p>
                   <p className="mb-2">
-                    Stock Quantity:{" "}
-                    {product.store_product_properties[0]?.stock_quantity}
+                    Stock Quantity: {product.store_product_properties[0]?.stock_quantity}
                   </p>
                   <p className="mb-2">
-                    Expiration Date:{" "}
-                    {product.store_product_properties[0]?.expiry_date}
+                    Expiration Date: {product.store_product_properties[0]?.expiry_date}
                   </p>
 
                   <button
@@ -49,7 +46,7 @@ const ProductList = () => {
         <p> Loading...</p>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ProductList;
+export default ProductList

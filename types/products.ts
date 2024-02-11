@@ -1,5 +1,3 @@
-
-
 export interface Product {
   id: number;
   name: string;
@@ -13,5 +11,5 @@ export interface Product {
 }
 
 export interface Props {
-    cartItems : any[]
+  cartItems: any[];
 }

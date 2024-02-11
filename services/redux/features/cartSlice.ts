@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const carts: any[] = [];
 const cartSlice = createSlice({
@@ -15,19 +16,32 @@ const cartSlice = createSlice({
       const existingItem = state.carts.find(
         (item) => item.id === newCartItems.id
       );
+
+      const itemIndex = state.carts.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
       state.totalQuantity++;
+
       if (!existingItem) {
         state.carts.push({
           id: newCartItems.id,
           quantity: 1,
           name: newCartItems.name,
           price: newCartItems.store_product_properties[0].selling_price,
+          stock_quantity:
+            newCartItems.store_product_properties[0].stock_quantity,
         });
-        toast.success("Product added to cart", {
-          position: "bottom-left",
+
+        toast.success("Product Added", {
+          position: toast.POSITION.TOP_RIGHT,
         });
       } else {
-        existingItem.quantity++;
+        state.carts[itemIndex]?.stock_quantity > existingItem.quantity
+          ? existingItem.quantity++
+          : toast.error("Product is not available", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
       }
     },
     decreaseCart(state, action) {

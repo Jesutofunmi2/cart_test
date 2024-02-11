@@ -5,6 +5,7 @@ import "./globals.css";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 import Navbar from "@/components/Navbar";
 import MobileNavbar from "@/components/MobileNavbar";
+import { ToastProvider } from "@/providers/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +23,13 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <ToastProvider>
         <ReduxProvider>
         <Navbar />
         <MobileNavbar />
             {children}
         </ReduxProvider>
+       </ToastProvider>
       </body>
     </html>
   );

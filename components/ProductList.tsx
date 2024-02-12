@@ -31,13 +31,16 @@ const ProductList = () => {
                   <p className="mb-2">
                     Expiration Date: {product.store_product_properties[0]?.expiry_date}
                   </p>
-
+                 
+                 { product.store_product_properties[0]?.stock_quantity !== 0 && (
                   <button
                     onClick={() => dispatch(addTocartData(product))}
                     className=" bg-accent text-white text-[18px] font-bold py-2 px-4 rounded-full grip place-items-center"
                   >
                     <AiOutlineShopping />
                   </button>
+
+                 )}
                 </div>
               )
           )}
